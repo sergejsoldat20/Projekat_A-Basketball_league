@@ -36,9 +36,14 @@ namespace WinFormsTest
                 };
                 context.BasketballPlayer.Add(player);
                 context.SaveChanges();
-                MessageBox.Show(player.Name);
+                MessageBox.Show(textBox1.Text);
             }
             
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
