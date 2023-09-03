@@ -8,11 +8,11 @@ namespace WinFormsTest.Models
 {
     public class Club : BaseModel
     {
-        public string Name { get; set; }
-        public string City { get; set; }
-        public List<BasketballPlayer> BasketballPlayers { get; set; } = new List<BasketballPlayer>();
-        public List<TableClub> TableClubs { get; set; } = new List<TableClub>();
-        public List<Game> HomeGames { get; set; } = new List<Game>();
-        public List<Game> GuestGames { get; set; } = new List<Game>();
+        public string Name { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public virtual List<BasketballPlayer> BasketballPlayers { get; set; } = new List<BasketballPlayer>();
+        public virtual List<Table> Tables { get; set; } = new List<Table>();
+        public virtual List<Game> HomeGames { get; set; } = new List<Game>();
+        public virtual List<Game> GuestGames { get; set; } = new List<Game>();
     }
 }

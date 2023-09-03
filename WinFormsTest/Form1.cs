@@ -12,38 +12,53 @@ using WinFormsTest.Models;
 
 namespace WinFormsTest
 {
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
+	public partial class Form1 : Form
+	{
+		public Form1()
+		{
+			InitializeComponent();
+		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (ApplicationDbContext context = new ApplicationDbContext())
-            {
-                var clubs = context
-                    .Club
-                    .Where(x => x.Name == "Crvena Zvezda")
-                    .ToList();
-                var player = new BasketballPlayer()
-                {
-                    ClubId = clubs.FirstOrDefault().Id,
-                    Name = "Sergej Soldat",
-                    DressNumber = "5",
-                    Position = "plej",
-                };
-                context.BasketballPlayer.Add(player);
-                context.SaveChanges();
-                MessageBox.Show(textBox1.Text);
-            }
-            
-        }
+		private void button1_Click(object sender, EventArgs e)
+		{
+			using (ApplicationDbContext context = new ApplicationDbContext())
+			{
+				var clubs = context
+					.Club
+					.Where(x => x.Name == "Crvena Zvezda")
+					.ToList();
+				var player = new BasketballPlayer()
+				{
+					ClubId = clubs.FirstOrDefault().Id,
+					Name = "Sergej Soldat",
+					DressNumber = "5",
+					Position = "plej",
+				};
+				context.BasketballPlayer.Add(player);
+				context.SaveChanges();
+				MessageBox.Show(textBox1.Text);
+			}
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
+		}
 
-        }
-    }
+		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void panelLogo_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

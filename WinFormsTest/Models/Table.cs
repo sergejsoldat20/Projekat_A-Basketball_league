@@ -9,8 +9,8 @@ namespace WinFormsTest.Models
     public class Table : BaseModel
     {
         public string Season { get; set; }
-        public List<TableClub> TableClubs { get; set; } = new List<TableClub>();
-        public League League { get; set; }
+        public virtual List<Club> Clubs { get; set; } = new List<Club>();
+        public virtual League League { get; set; }
         
     }
 }

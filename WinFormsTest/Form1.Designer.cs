@@ -1,102 +1,118 @@
 ﻿namespace WinFormsTest
 {
-    partial class Form1
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class Form1
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(316, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 56);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(316, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(316, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 23);
-            this.textBox2.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(316, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 23);
-            this.textBox3.TabIndex = 3;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(316, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(210, 23);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 415);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			menuItemsPanel = new Panel();
+			logoPanel = new Panel();
+			button1 = new Button();
+			button2 = new Button();
+			button3 = new Button();
+			menuItemsPanel.SuspendLayout();
+			SuspendLayout();
+			// 
+			// menuItemsPanel
+			// 
+			menuItemsPanel.BackColor = Color.FromArgb(51, 51, 76);
+			menuItemsPanel.Controls.Add(button3);
+			menuItemsPanel.Controls.Add(button2);
+			menuItemsPanel.Controls.Add(button1);
+			menuItemsPanel.Controls.Add(logoPanel);
+			menuItemsPanel.Dock = DockStyle.Left;
+			menuItemsPanel.Location = new Point(0, 0);
+			menuItemsPanel.Name = "menuItemsPanel";
+			menuItemsPanel.Size = new Size(240, 554);
+			menuItemsPanel.TabIndex = 6;
+			menuItemsPanel.Paint += panelLogo_Paint;
+			// 
+			// logoPanel
+			// 
+			logoPanel.BackColor = Color.FromArgb(39, 39, 58);
+			logoPanel.Dock = DockStyle.Top;
+			logoPanel.Location = new Point(0, 0);
+			logoPanel.Name = "logoPanel";
+			logoPanel.Size = new Size(240, 77);
+			logoPanel.TabIndex = 0;
+			// 
+			// button1
+			// 
+			button1.Dock = DockStyle.Top;
+			button1.ForeColor = Color.White;
+			button1.Location = new Point(0, 77);
+			button1.Name = "button1";
+			button1.Size = new Size(240, 50);
+			button1.TabIndex = 1;
+			button1.Text = "button1";
+			button1.UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			button2.Dock = DockStyle.Top;
+			button2.Location = new Point(0, 127);
+			button2.Name = "button2";
+			button2.Size = new Size(240, 50);
+			button2.TabIndex = 2;
+			button2.Text = "button2";
+			button2.UseVisualStyleBackColor = true;
+			// 
+			// button3
+			// 
+			button3.Dock = DockStyle.Top;
+			button3.Location = new Point(0, 177);
+			button3.Name = "button3";
+			button3.Size = new Size(240, 40);
+			button3.TabIndex = 3;
+			button3.Text = "button3";
+			button3.UseVisualStyleBackColor = true;
+			button3.Click += button3_Click;
+			// 
+			// Form1
+			// 
+			AutoScaleDimensions = new SizeF(7F, 15F);
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.White;
+			BackgroundImageLayout = ImageLayout.Zoom;
+			ClientSize = new Size(1091, 554);
+			Controls.Add(menuItemsPanel);
+			DoubleBuffered = true;
+			Name = "Form1";
+			Text = "Form1";
+			Load += Form1_Load;
+			menuItemsPanel.ResumeLayout(false);
+			ResumeLayout(false);
+		}
 
-        }
+		#endregion
 
-        #endregion
-
-        private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private DateTimePicker dateTimePicker1;
-    }
+		private Panel menuItemsPanel;
+		private Panel logoPanel;
+		private Button button3;
+		private Button button2;
+		private Button button1;
+	}
 }

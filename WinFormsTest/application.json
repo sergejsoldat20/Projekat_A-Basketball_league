@@ -1,3 +1,6 @@
 {
-  "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=BasketBallLeagueDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  "Data": {
+    "ConnectionString": "Server=localhost;Port=5432;Database=travel_planer;User Id=postgres;Password=adm1n;Pooling=true"
+  }
 }
+ 

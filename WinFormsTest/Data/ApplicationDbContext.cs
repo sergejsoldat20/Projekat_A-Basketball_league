@@ -13,7 +13,7 @@ namespace WinFormsTest.Data
 {
     internal class ApplicationDbContext : DbContext
     {
-        private string _connectionString = "Server=(localdb)\\mssqllocaldb;Database=BasketBallLeagueDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+        private string _connectionString = "Server=localhost;Port=5432;Database=hci_db;User Id=postgres;Password=adm1n;Pooling=true";
         public DbSet<Club> Club { get; set; }
         public DbSet<BasketballPlayer> BasketballPlayer { get; set; }
         public DbSet<Game> Game { get; set; }
@@ -21,57 +21,94 @@ namespace WinFormsTest.Data
         public DbSet<Table> Table { get; set; }
         public DbSet<TableClub> TableClub { get; set; }
 
-        public ApplicationDbContext()
+        public ApplicationDbContext() 
         {
                
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        { 
-            optionsBuilder.UseSqlServer(_connectionString);
+        {
+            optionsBuilder.UseNpgsql(_connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Club>()
-                .HasMany(c => c.BasketballPlayers)
-                .WithOne(p => p.Club)
-                .HasForeignKey(c => c.ClubId)
-                .OnDelete(DeleteBehavior.NoAction);
+            base.OnModelCreating(builder);
 
-            builder.Entity<TableClub>()
-                .HasKey(t => new { t.ClubId, t.TableId });
+            builder.Entity<BasketballPlayer>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.Name).HasMaxLength(50);
+                entity.Property(x => x.DressNumber).HasMaxLength(50);
+                entity.Property(x => x.Position).HasMaxLength(50);
 
-            builder.Entity<Club>()
-                .HasMany(x => x.TableClubs)
-                .WithOne(x => x.Club)
-                .HasForeignKey(x => x.ClubId)
-                .OnDelete(DeleteBehavior.NoAction);
+                entity
+                .HasOne(x => x.Club)
+                .WithMany(x => x.BasketballPlayers)
+                .HasForeignKey(x => x.ClubId);
+            });
 
-            builder.Entity<Club>()
+            builder.Entity<Club>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.Name).HasMaxLength(50);
+                entity.Property(x => x.City).HasMaxLength(50);
+
+                entity
+                .HasMany(x => x.HomeGames)
+                .WithOne(x => x.Home)
+                .HasForeignKey(x => x.HomeId);
+
+
+                entity
                 .HasMany(x => x.GuestGames)
                 .WithOne(x => x.Guest)
-                .HasForeignKey(x => x.GuestId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(x => x.GuestId);
 
-            builder.Entity<Club>()
-               .HasMany(x => x.HomeGames)
-               .WithOne(x => x.Home)
-               .HasForeignKey(x => x.HomeId)
-               .OnDelete(DeleteBehavior.NoAction);
+                entity
+                .HasMany(x => x.Tables)
+                .WithMany(x => x.Clubs)
+                .UsingEntity<TableClub>(
+                        l => l.HasOne<Table>().WithMany().HasForeignKey(e => e.TableId),
+                        r => r.HasOne<Club>().WithMany().HasForeignKey(e => e.ClubId)
+                    );
+            });
 
-            builder.Entity<Table>()
-                .HasMany(x => x.TableClubs)
-                .WithOne(x => x.Table)
-                .HasForeignKey(x => x.TableId)
-                .OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Game>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.City).HasMaxLength(50);
+                entity.Property(x => x.Arena).HasMaxLength(50);
+                entity.Property(x => x.GuestPoints);
+                entity.Property(x => x.HomePoints);
+            });
 
-            builder.Entity<Table>()
-                .HasOne(x => x.League)
-                .WithOne(x => x.Table)
-                .HasForeignKey<League>(x => x.TableId)
-                .OnDelete(DeleteBehavior.NoAction);
-        }
+			builder.Entity<League>(entity =>
+			{
+				entity.HasKey(x => x.Id);
+                entity.Property(x => x.State).HasMaxLength(50);
+                entity.Property(x => x.Name).HasMaxLength(50);
 
-    }
+
+				entity
+                .HasOne(x => x.Table)
+                .WithOne(x => x.League);      
+			});
+
+			builder.Entity<Table>(entity =>
+			{
+				entity.HasKey(x => x.Id);
+                entity.Property(x => x.Season).HasMaxLength(50);
+
+			});
+
+			builder.Entity<TableClub>(entity =>
+			{
+                entity.HasKey(x => new { x.TableId, x.ClubId });
+				entity.Property(x => x.ClubPoints);
+
+			});
+		}
+
+	}
 }
