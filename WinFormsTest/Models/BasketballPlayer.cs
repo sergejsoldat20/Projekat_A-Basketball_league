@@ -11,7 +11,7 @@ namespace WinFormsTest.Models
         public string Name { get; set; }
         public string DressNumber { get; set; }
         public string Position { get; set; }
-        public Guid ClubId { get; set; }
+        public int ClubId { get; set; }
         public virtual Club Club { get; set; }
     }
 }

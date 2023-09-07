@@ -10,7 +10,7 @@ namespace WinFormsTest.Models
     {
         public string State { get; set; }
         public string Name { get; set; }
-        public Guid TableId { get; set; }
+        public int TableId { get; set; }
         public virtual Table Table { get; set; }
     }
 }

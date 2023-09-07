@@ -117,4 +117,157 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddAccountButton" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddGameButton" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddGameLabel" xml:space="preserve">
+    <value>Dodaj novu utakmicu</value>
+  </data>
+  <data name="AddNewAccountButton" xml:space="preserve">
+    <value>Dodaj nalog</value>
+  </data>
+  <data name="AddNewGameButton" xml:space="preserve">
+    <value>Dodaj utakmicu</value>
+  </data>
+  <data name="AddNewPlayerButton" xml:space="preserve">
+    <value>Dodaj igraca</value>
+  </data>
+  <data name="AddPlayerButton" xml:space="preserve">
+    <value>Submit:</value>
+  </data>
+  <data name="AddPlayerLabel" xml:space="preserve">
+    <value>Dodaj igraca:</value>
+  </data>
+  <data name="AddPlayersButton" xml:space="preserve">
+    <value>Dodaj igraca</value>
+  </data>
+  <data name="AddUserHeader" xml:space="preserve">
+    <value>Dodaj nalog</value>
+  </data>
+  <data name="AllGamesLabel" xml:space="preserve">
+    <value>Sve utakmice</value>
+  </data>
+  <data name="AllPlayersLabel" xml:space="preserve">
+    <value>Svi igraci</value>
+  </data>
+  <data name="ArenaLabel" xml:space="preserve">
+    <value>Arena:</value>
+  </data>
+  <data name="ArenaTable" xml:space="preserve">
+    <value>Arena</value>
+  </data>
+  <data name="ChangeLanguageButton" xml:space="preserve">
+    <value>Prevedi</value>
+  </data>
+  <data name="ChooseSeasonButton" xml:space="preserve">
+    <value>Izaberi</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="CityLabel" xml:space="preserve">
+    <value>Grad:</value>
+  </data>
+  <data name="CityTable" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="ClubLabel" xml:space="preserve">
+    <value>Klub:</value>
+  </data>
+  <data name="ClubNameTable" xml:space="preserve">
+    <value>Klub</value>
+  </data>
+  <data name="ClubTable" xml:space="preserve">
+    <value>Klub</value>
+  </data>
+  <data name="DressNumberLabel" xml:space="preserve">
+    <value>Dres:</value>
+  </data>
+  <data name="DressNumberTable" xml:space="preserve">
+    <value>Broj dresa</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>      Ime:</value>
+  </data>
+  <data name="GamesButton" xml:space="preserve">
+    <value>Utakmice</value>
+  </data>
+  <data name="GameTimeLabel" xml:space="preserve">
+    <value>Vrijeme:</value>
+  </data>
+  <data name="GameTimeTable" xml:space="preserve">
+    <value>Vrijeme</value>
+  </data>
+  <data name="GuestLabel" xml:space="preserve">
+    <value>Gosti:</value>
+  </data>
+  <data name="GuestPointsLabel" xml:space="preserve">
+    <value>Poeni gosti:</value>
+  </data>
+  <data name="GuestTable" xml:space="preserve">
+    <value>Gosti</value>
+  </data>
+  <data name="HomeLabel" xml:space="preserve">
+    <value>Domaci:</value>
+  </data>
+  <data name="HomePointsLabel" xml:space="preserve">
+    <value>Poeni domaci:</value>
+  </data>
+  <data name="HomeTable" xml:space="preserve">
+    <value>Domaci</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value> Prezime:</value>
+  </data>
+  <data name="MainHeader" xml:space="preserve">
+    <value>Kosarkaska liga</value>
+  </data>
+  <data name="NameTable" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Lozinka:</value>
+  </data>
+  <data name="PlayerNameLabel" xml:space="preserve">
+    <value>Ime:</value>
+  </data>
+  <data name="PlayersButton" xml:space="preserve">
+    <value>Igraci</value>
+  </data>
+  <data name="PointsGuestTable" xml:space="preserve">
+    <value>Poeni gosti</value>
+  </data>
+  <data name="PointsHomeTable" xml:space="preserve">
+    <value>Poeni domaci</value>
+  </data>
+  <data name="PointsTable" xml:space="preserve">
+    <value>Bodovi</value>
+  </data>
+  <data name="PositionLabel" xml:space="preserve">
+    <value>Pozicija:</value>
+  </data>
+  <data name="PositionTable" xml:space="preserve">
+    <value>Pozicija</value>
+  </data>
+  <data name="RoleLabel" xml:space="preserve">
+    <value>Uloga:</value>
+  </data>
+  <data name="Season" xml:space="preserve">
+    <value>Sezona</value>
+  </data>
+  <data name="TableButton" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="TableLabel" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="TeamsButton" xml:space="preserve">
+    <value>Timovi</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Korisnicko ime:</value>
+  </data>
 </root>

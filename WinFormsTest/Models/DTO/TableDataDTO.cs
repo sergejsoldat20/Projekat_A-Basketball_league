@@ -11,4 +11,5 @@ public class TableDataDTO
 	public string ClubName { get; set; } = string.Empty;
 	public string CityName { get; set; } = string.Empty;
 	public int Points { get; set; }
+	public string Season { get; set; } = string.Empty;
 }

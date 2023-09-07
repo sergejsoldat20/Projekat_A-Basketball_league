@@ -22,17 +22,71 @@ namespace WinFormsTest.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("WinFormsTest.Models.Account", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Account");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Sergej",
+                            LastName = "Soldat",
+                            Password = "admin",
+                            Role = "ADMIN",
+                            Username = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Sergej",
+                            LastName = "Soldat",
+                            Password = "user",
+                            Role = "USER",
+                            Username = "user"
+                        });
+                });
+
             modelBuilder.Entity("WinFormsTest.Models.BasketballPlayer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("ClubId")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<int>("ClubId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("DressNumber")
                         .IsRequired()
@@ -49,54 +103,99 @@ namespace WinFormsTest.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClubId");
 
                     b.ToTable("BasketballPlayer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClubId = 1,
+                            DressNumber = "23",
+                            Name = "Player 1",
+                            Position = "Guard"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClubId = 1,
+                            DressNumber = "10",
+                            Name = "Player 2",
+                            Position = "Forward"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClubId = 2,
+                            DressNumber = "7",
+                            Name = "Player 3",
+                            Position = "Center"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClubId = 2,
+                            DressNumber = "15",
+                            Name = "Player 4",
+                            Position = "Guard"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClubId = 2,
+                            DressNumber = "33",
+                            Name = "Player 5",
+                            Position = "Forward"
+                        });
                 });
 
             modelBuilder.Entity("WinFormsTest.Models.Club", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
-
                     b.HasKey("Id");
 
                     b.ToTable("Club");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "City 1",
+                            Name = "Club 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "City 2",
+                            Name = "Club 2"
+                        });
                 });
 
             modelBuilder.Entity("WinFormsTest.Models.Game", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Arena")
                         .IsRequired()
@@ -108,29 +207,20 @@ namespace WinFormsTest.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<DateTime>("GameTime")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("GuestId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("GuestId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("GuestPoints")
                         .HasColumnType("integer");
 
-                    b.Property<Guid>("HomeId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("HomeId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("HomePoints")
                         .HasColumnType("integer");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
 
                     b.HasKey("Id");
 
@@ -143,31 +233,24 @@ namespace WinFormsTest.Migrations
 
             modelBuilder.Entity("WinFormsTest.Models.League", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp with time zone");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
-
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<Guid>("TableId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("TableId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -179,18 +262,11 @@ namespace WinFormsTest.Migrations
 
             modelBuilder.Entity("WinFormsTest.Models.Table", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bytea");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Season")
                         .IsRequired()
@@ -200,15 +276,27 @@ namespace WinFormsTest.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Table");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Season = "2020"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Season = "2020"
+                        });
                 });
 
             modelBuilder.Entity("WinFormsTest.Models.TableClub", b =>
                 {
-                    b.Property<Guid>("TableId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("TableId")
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("ClubId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("ClubId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("ClubPoints")
                         .HasColumnType("integer");
@@ -218,6 +306,32 @@ namespace WinFormsTest.Migrations
                     b.HasIndex("ClubId");
 
                     b.ToTable("TableClub");
+
+                    b.HasData(
+                        new
+                        {
+                            TableId = 1,
+                            ClubId = 1,
+                            ClubPoints = 56
+                        },
+                        new
+                        {
+                            TableId = 2,
+                            ClubId = 1,
+                            ClubPoints = 55
+                        },
+                        new
+                        {
+                            TableId = 1,
+                            ClubId = 2,
+                            ClubPoints = 77
+                        },
+                        new
+                        {
+                            TableId = 2,
+                            ClubId = 2,
+                            ClubPoints = 99
+                        });
                 });
 
             modelBuilder.Entity("WinFormsTest.Models.BasketballPlayer", b =>

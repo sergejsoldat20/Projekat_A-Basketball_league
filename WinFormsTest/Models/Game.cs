@@ -10,8 +10,8 @@ namespace WinFormsTest.Models
     {
         public string City { get; set; }
         public string Arena { get; set; }
-        public Guid GuestId { get; set; }
-        public Guid HomeId { get; set; }
+        public int GuestId { get; set; }
+        public int HomeId { get; set; }
         public virtual Club Guest { get; set; }
         public virtual Club Home { get; set; }
         public DateTime GameTime { get; set; }

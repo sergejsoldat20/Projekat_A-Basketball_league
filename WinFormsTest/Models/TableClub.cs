@@ -8,8 +8,8 @@ namespace WinFormsTest.Models
 {
     public class TableClub
     {
-        public Guid ClubId { get; set; }
-        public Guid TableId { get; set; }
+        public int ClubId { get; set; }
+        public int TableId { get; set; }
         public int ClubPoints { get; set; }
     }
 }
